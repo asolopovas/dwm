@@ -119,7 +119,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,			XK_o,					incnmaster, 		{.i = -1 						}	},
 	{ MODKEY,								XK_Tab,			  view,						{0									} },
 	{ MODKEY,								XK_q,				  killclient,			{0									} },
-	{ MODKEY|ShiftMask,			XK_q,				  quit,						{1									}	},
+	{ MODKEY|ShiftMask,			XK_q,				  quit,						{0									}	},
 	{ MODKEY,								XK_backslash,	view,						{0									} },
 	{ MODKEY,								XK_s,		      togglesticky,		{0									} },
 	{ MODKEY|ShiftMask,			XK_d,		      togglegaps,			{0									} },
@@ -158,9 +158,11 @@ static Key keys[] = {
 	// Monitor Navigation
 	// -------------------------------------------------
 	{ MODKEY,								XK_Left,			focusmon,		{.i = -1 } },
-	{ MODKEY|ControlMask,		XK_h,					focusmon,		{.i = -1 } },
+	{ MODKEY,								XK_h,					focusmon,		{.i = -1 } },
+	{ MODKEY|ShiftMask,			XK_h,					tagmon,			{.i = -1 } },
 	{ MODKEY|ShiftMask,			XK_Left,			tagmon,			{.i = -1 } },
-	{ MODKEY|ControlMask, 	XK_l,					focusmon,		{.i = +1 } },
+	{ MODKEY, 							XK_l,					focusmon,		{.i = +1 } },
+	{ MODKEY|ShiftMask,			XK_l,					tagmon,			{.i = +1 } },
 	{ MODKEY,								XK_Right,			focusmon,		{.i = +1 } },
 	{ MODKEY|ShiftMask,			XK_Right,			tagmon,			{.i = +1 } },
 	// { MODKEY,								XK_F3,		spawn,		SHCMD("displayselect") },
