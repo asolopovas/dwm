@@ -119,7 +119,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,			XK_o,					incnmaster, 		{.i = -1 						}	},
 	{ MODKEY,								XK_Tab,			  view,						{0									} },
 	{ MODKEY,								XK_q,				  killclient,			{0									} },
-	{ MODKEY|ShiftMask,			XK_q,				  spawn,					SHCMD("") 						},
+	{ MODKEY|ShiftMask,			XK_q,				  quit,						{1									}	},
 	{ MODKEY,								XK_backslash,	view,						{0									} },
 	{ MODKEY,								XK_s,		      togglesticky,		{0									} },
 	{ MODKEY|ShiftMask,			XK_d,		      togglegaps,			{0									} },
@@ -152,7 +152,7 @@ static Key keys[] = {
 	// -------------------------------------------------
 	// System
 	// -------------------------------------------------
-	{ MODKEY,	  	XK_p,				spawn, 		SHCMD("[ \"$(printf \"No\\nYes\" | dmenu -i -nb darkred -sb red -sf white -nf gray -p \"Shutdown computer?\")\" = Yes ] && sudo -A shutdown -h now") },
+	{ MODKEY,	  						XK_p,					spawn, 		SHCMD("[ \"$(printf \"No\\nYes\" | dmenu -i -nb darkred -sb red -sf white -nf gray -p \"Shutdown computer?\")\" = Yes ] && sudo -A shutdown -h now") },
 
 	// -------------------------------------------------
 	// Monitor Navigation
@@ -174,7 +174,7 @@ static Key keys[] = {
 	// { MODKEY,							XK_e,								spawn,						SHCMD("st -e neomutt ; pkill -RTMIN+12 dwmblocks; rmdir ~/.abook") },
 	// { MODKEY|ShiftMask,		XK_e,								spawn,						SHCMD("tutorialvids") },
 	// { MODKEY,							XK_r,								spawn,						SHCMD("st -e lf") },
-	// { MODKEY|ShiftMask,		XK_r,								quit,							{1} },
+	// { MODKEY|ShiftMask,		XK_q,								quit,							{1} },
 	// { MODKEY,							XK_p,								spawn,						SHCMD("mpc toggle") },
 	// { MODKEY|ShiftMask,		XK_p,								spawn,						SHCMD("mpc pause ; pauseallmpv") },
 	// { MODKEY,							XK_bracketleft,			spawn,						SHCMD("mpc seek -10") },
@@ -212,47 +212,48 @@ static Key keys[] = {
 	{ MODKEY,									XK_Page_Down,				shiftview,				{ .i = 1 } },
 	{ MODKEY,									XK_Insert,					spawn,						SHCMD("notify-send \"📋 Clipboard contents:\" \"$(xclip -o -selection clipboard)\"") },
 
-	// { MODKEY,							XK_F1,						spawn,						SHCMD("groff -mom /usr/local/share/dwm/larbs.mom -Tpdf | zathura -") },
-	// { MODKEY,							XK_F2,						quit,							{1} },
-	/* { MODKEY,							XK_F4,						spawn,						SHCMD("") }, */
-	// { MODKEY,							XK_F5,						xrdb,							{.v = NULL } },
-	// { MODKEY,							XK_F6,						spawn,						SHCMD("") },
-	// { MODKEY,							XK_F7,						spawn,						SHCMD("") },
-	// { MODKEY,							XK_F8,						spawn,						SHCMD("") },
-	// { MODKEY,							XK_F9,						spawn,						SHCMD("") },
-	// { MODKEY,							XK_F10,						spawn,						SHCMD("") },
-	/* { MODKEY,							XK_F11,						spawn,						SHCMD("") }, */
-	/* { MODKEY,							XK_F12,						spawn,						SHCMD("") }, */
-	{ MODKEY,									XK_space,					zoom,							{0} },
-	{ MODKEY|ShiftMask,				XK_space,					togglefloating,		{0} 																																																																																																																																																																																																																																																																																																																																																																																																																																																																				},
-	{ 0, XK_Print,															spawn, 						SHCMD("maim pic-full-$(date '+%y%m%d-%H%M-%S').png") },
-	{ 0, XF86XK_AudioMute,											spawn,						SHCMD("pamixer -t; kill -44 $(pidof dwmblocks)") },
-	{ 0, XF86XK_AudioRaiseVolume,								spawn,						SHCMD("pamixer --allow-boost -i 3; kill -44 $(pidof dwmblocks)") },
-	{ 0, XF86XK_AudioLowerVolume,								spawn,						SHCMD("pamixer --allow-boost -d 3; kill -44 $(pidof dwmblocks)") },
-	{ 0, XF86XK_AudioPrev,											spawn,						SHCMD("playerctl previous") },
-	{ 0, XF86XK_AudioNext,											spawn,						SHCMD("playerctl next") },
-	{ 0, XF86XK_AudioPause,											spawn,						SHCMD("playerctl pause") },
-	{ 0, XF86XK_AudioPlay,											spawn,						SHCMD("playerctl play-pause") },
-	{ 0, XF86XK_AudioStop,											spawn,						SHCMD("playerctl stop") },
-	// { 0, XF86XK_AudioRewind,									spawn,						SHCMD("mpc seek -10") },
-	// { 0, XF86XK_AudioForward,								spawn,						SHCMD("mpc seek +10") },
-	{ 0, XF86XK_AudioMedia,											spawn,						SHCMD("st -e ncmpcpp") },
-	{ 0, XF86XK_PowerOff,												spawn,						SHCMD("[ \"$(printf \"No\\nYes\" | dmenu -i -nb darkred -sb red -sf white -nf gray -p \"Shutdown computer?\")\" = Yes ] && sudo -A shutdown -h now") },
-	{ 0, XF86XK_Calculator,											spawn,						SHCMD("st -e bc -l") },
-	{ 0, XF86XK_Sleep,													spawn,						SHCMD("sudo -A zzz") },
-	{ 0, XF86XK_WWW,														spawn,						SHCMD("$BROWSER") },
-	{ 0, XF86XK_DOS,														spawn,						SHCMD("st") },
-	{ 0, XF86XK_ScreenSaver,										spawn,						SHCMD("slock & xset dpms force off; mpc pause; pauseallmpv") },
-	{ 0, XF86XK_TaskPane,												spawn,						SHCMD("st -e htop") },
-	{ 0, XF86XK_Mail,														spawn,						SHCMD("st -e neomutt ; pkill -RTMIN+12 dwmblocks") },
-	{ 0, XF86XK_MyComputer,											spawn,						SHCMD("st -e lf /") },
-	/* { 0, XF86XK_Battery,											spawn,						SHCMD("") }, */
-	{ 0, XF86XK_Launch1,												spawn,						SHCMD("xset dpms force off") },
-	{ 0, XF86XK_TouchpadToggle,									spawn,						SHCMD("(synclient | grep 'TouchpadOff.*1' && synclient TouchpadOff=0) || synclient TouchpadOff=1") },
-	{ 0, XF86XK_TouchpadOff,										spawn,						SHCMD("synclient TouchpadOff=1") },
-	{ 0, XF86XK_TouchpadOn,											spawn,						SHCMD("synclient TouchpadOff=0") },
-	{ 0, XF86XK_MonBrightnessUp,								spawn,						SHCMD("xbacklight -inc 15") },
-	{ 0, XF86XK_MonBrightnessDown,							spawn,						SHCMD("xbacklight -dec 15") },
+	// { MODKEY,							XK_F1,				spawn		,		SHCMD("groff -mom /usr/local/share/dwm/larbs.mom -Tpdf | zathura -") },
+	// { MODKEY,							XK_F2,				quit		,			{1} },
+	/* { MODKEY,							XK_F4,				spawn		,		SHCMD("") }, */
+	// { MODKEY,							XK_F5,				xrdb		,			{.v = NULL } },
+	// { MODKEY,							XK_F6,				spawn		,		SHCMD("") },
+	// { MODKEY,							XK_F7,				spawn		,		SHCMD("") },
+	// { MODKEY,							XK_F8,				spawn		,		SHCMD("") },
+	// { MODKEY,							XK_F9,				spawn		,		SHCMD("") },
+	// { MODKEY,							XK_F10,				spawn		,		SHCMD("") },
+	/* { MODKEY,							XK_F11,				spawn		,		SHCMD("") }, */
+	/* { MODKEY,							XK_F12,				spawn		,		SHCMD("") }, */
+	{ MODKEY,									XK_space,			zoom		,						{0} },
+	{ MODKEY|ShiftMask,				XK_space,					togglefloating,	{0} 																																																																																																																																																																																																																																																																																																																																																																																																																																																																				},
+
+	{ 0, XK_Print,													spawn, 						SHCMD("maim pic-full-$(date '+%y%m%d-%H%M-%S').png") },
+	{ 0, XF86XK_AudioMute,									spawn,						SHCMD("pamixer -t; kill -44 $(pidof dwmblocks)") },
+	{ 0, XF86XK_AudioRaiseVolume,						spawn,						SHCMD("pamixer --allow-boost -i 3; kill -44 $(pidof dwmblocks)") },
+	{ 0, XF86XK_AudioLowerVolume,						spawn,						SHCMD("pamixer --allow-boost -d 3; kill -44 $(pidof dwmblocks)") },
+	{ 0, XF86XK_AudioPrev,									spawn,						SHCMD("playerctl previous") },
+	{ 0, XF86XK_AudioNext,									spawn,						SHCMD("playerctl next") },
+	{ 0, XF86XK_AudioPause,									spawn,						SHCMD("playerctl pause") },
+	{ 0, XF86XK_AudioPlay,									spawn,						SHCMD("playerctl play-pause") },
+	{ 0, XF86XK_AudioStop,									spawn,						SHCMD("playerctl stop") },
+	// { 0, XF86XK_AudioRewind,							spawn,						SHCMD("mpc seek -10") },
+	// { 0, XF86XK_AudioForward,						spawn,						SHCMD("mpc seek +10") },
+	{ 0, XF86XK_AudioMedia,									spawn,						SHCMD("st -e ncmpcpp") },
+	{ 0, XF86XK_PowerOff,										spawn,						SHCMD("[ \"$(printf \"No\\nYes\" | dmenu -i -nb darkred -sb red -sf white -nf gray -p \"Shutdown computer?\")\" = Yes ] && sudo -A shutdown -h now") },
+	{ 0, XF86XK_Calculator,									spawn,						SHCMD("st -e bc -l") },
+	{ 0, XF86XK_Sleep,											spawn,						SHCMD("sudo -A zzz") },
+	{ 0, XF86XK_WWW,												spawn,						SHCMD("$BROWSER") },
+	{ 0, XF86XK_DOS,												spawn,						SHCMD("st") },
+	{ 0, XF86XK_ScreenSaver,								spawn,						SHCMD("slock & xset dpms force off; mpc pause; pauseallmpv") },
+	{ 0, XF86XK_TaskPane,										spawn,						SHCMD("st -e htop") },
+	{ 0, XF86XK_Mail,												spawn,						SHCMD("st -e neomutt ; pkill -RTMIN+12 dwmblocks") },
+	{ 0, XF86XK_MyComputer,									spawn,						SHCMD("st -e lf /") },
+	/* { 0, XF86XK_Battery,									spawn,						SHCMD("") }, */
+	{ 0, XF86XK_Launch1,										spawn,						SHCMD("xset dpms force off") },
+	{ 0, XF86XK_TouchpadToggle,							spawn,						SHCMD("(synclient | grep 'TouchpadOff.*1' && synclient TouchpadOff=0) || synclient TouchpadOff=1") },
+	{ 0, XF86XK_TouchpadOff,								spawn,						SHCMD("synclient TouchpadOff=1") },
+	{ 0, XF86XK_TouchpadOn,									spawn,						SHCMD("synclient TouchpadOff=0") },
+	{ 0, XF86XK_MonBrightnessUp,						spawn,						SHCMD("xbacklight -inc 15") },
+	{ 0, XF86XK_MonBrightnessDown,					spawn,						SHCMD("xbacklight -dec 15") },
 
 };
 
