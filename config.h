@@ -32,9 +32,29 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask     isfloating   isterminal noswallow monitor */
-	{ "Gimp",     NULL,       NULL,       1 << 8,       0,           0,         0,        -1 },
-	{ "St",       NULL,       NULL,       0,            0,           1,         0,        -1 },
+	/* class      						instance    title       tags mask     isfloating   isterminal noswallow monitor */
+	{ "Gimp",     						NULL,       NULL,       1 << 8,       0,           0,         0,        -1 },
+	{ "St",       						NULL,       NULL,       0,            0,           1,         0,        -1 },
+	{ "Nvidia-settings",      NULL,       NULL,       1 << 7,       0,           1,         0,        -1 },
+
+// for_window [class="Nvidia-settings"], $floating
+// for_window [class="^.*"] border pixel 2
+// for_window [class="Spotify"] $move 5, layout tabbed, focus
+// for_window [class="ViberPC"] $move 0, layout tabbed 
+// for_window [class="Skype"] $move 0, layout tabbed 
+// for_window [class="whatsapp-nativefier-d52542"] $move 0, layout tabbed
+// for_window [class="Ao"] $move 9
+// for_window [class="p3x-onenote"] $move 9
+// for_window [class="Image Lounge"], $floating, $center
+// for_window [class="Gucharmap"], $floating, $center
+// for_window [class="Yad"], $floating, $center
+// for_window [class="Lxappearance"], $floating, $center
+// for_window [class="Blueman-manager"], $floating, $center
+// for_window [class="Psi"], $floating, $center
+// for_window [class="Gpg-crypter"], $floating
+// for_window [class="Seahorse"], $floating
+// for_window [class="stacer"], $floating
+// for_window [class="vlc"], $floating
 };
 
 /* layout(s) */
@@ -63,6 +83,7 @@ static const Layout layouts[] = {
 
 /* key definitions */
 #define MODKEY Mod4Mask
+#define MOD1 Mod1Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -119,15 +140,15 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,			XK_o,					incnmaster, 		{.i = -1 						}	},
 	{ MODKEY,								XK_Tab,			  view,						{0									} },
 	{ MODKEY,								XK_q,				  killclient,			{0									} },
-	{ MODKEY|ShiftMask,			XK_q,				  quit,						{0									}	},
+	{ MOD1|ShiftMask,				XK_q,				  quit,						{0									}	},
 	{ MODKEY,								XK_backslash,	view,						{0									} },
 	{ MODKEY,								XK_s,		      togglesticky,		{0									} },
 	{ MODKEY|ShiftMask,			XK_d,		      togglegaps,			{0									} },
 	{ MODKEY,								XK_f,		      togglefullscr, 	{0									} },
 	{ MODKEY|ShiftMask,			XK_f,		      setlayout	,			{.v = &layouts[8] 	}	},
 	{ MODKEY,								XK_g,		      shiftview,			{.i = -1						}	},
-	{ MODKEY,								XK_h,		      setmfact,				{.f = -0.05					}	},
-	{ MODKEY,								XK_l,		      setmfact,     	{.f = +0.05					} },
+	{ MOD1,									XK_h,		      setmfact,				{.f = -0.05					}	},
+	{ MOD1,									XK_l,		      setmfact,     	{.f = +0.05					} },
 	{ MODKEY,								XK_Return,	  spawn,					{.v = termcmd 			} },
 	{ MODKEY|ShiftMask,			XK_Return,	  togglescratch,  {.v = scratchpadcmd } },
 	{ MODKEY,								XK_semicolon,	shiftview,			{.i = 1							} },
@@ -226,7 +247,7 @@ static Key keys[] = {
 	/* { MODKEY,							XK_F11,				spawn		,		SHCMD("") }, */
 	/* { MODKEY,							XK_F12,				spawn		,		SHCMD("") }, */
 	{ MODKEY,									XK_space,			zoom		,						{0} },
-	{ MODKEY|ShiftMask,				XK_space,					togglefloating,	{0} 																																																																																																																																																																																																																																																																																																																																																																																																																																																																				},
+	{ MODKEY|ShiftMask,				XK_space,		  togglefloating,	{0} 																																																																																																																																																																																																																																																																																																																																																																																																																																																																				},
 
 	{ 0, XK_Print,													spawn, 						SHCMD("maim pic-full-$(date '+%y%m%d-%H%M-%S').png") },
 	{ 0, XF86XK_AudioMute,									spawn,						SHCMD("pamixer -t; kill -44 $(pidof dwmblocks)") },
