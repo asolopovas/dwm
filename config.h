@@ -182,14 +182,18 @@ static Key keys[] = {
 	// -------------------------------------------------
 	// Monitor Navigation
 	// -------------------------------------------------
-	{ MODKEY,								XK_Left,			focusmon,		{.i = -1 } },
+	// { MODKEY,								XK_Left,			focusmon,		{.i = -1 } },
 	{ MODKEY,								XK_h,					focusmon,		{.i = -1 } },
 	{ MODKEY|ShiftMask,			XK_h,					tagmon,			{.i = -1 } },
-	{ MODKEY|ShiftMask,			XK_Left,			tagmon,			{.i = -1 } },
+	// { MODKEY|ShiftMask,			XK_Left,			tagmon,			{.i = -1 } },
 	{ MODKEY, 							XK_l,					focusmon,		{.i = +1 } },
 	{ MODKEY|ShiftMask,			XK_l,					tagmon,			{.i = +1 } },
-	{ MODKEY,								XK_Right,			focusmon,		{.i = +1 } },
-	{ MODKEY|ShiftMask,			XK_Right,			tagmon,			{.i = +1 } },
+	// { MODKEY,								XK_Right,			focusmon,		{.i = +1 } },
+	// { MODKEY|ShiftMask,			XK_Right,			tagmon,			{.i = +1 } },
+	{ MODKEY,                       XK_Left,   viewtoleft,     {0} },
+	{ MODKEY,                       XK_Right,  viewtoright,    {0} },
+	{ MODKEY|ShiftMask,             XK_Left,   tagtoleft,      {0} },
+	{ MODKEY|ShiftMask,             XK_Right,  tagtoright,     {0} },
 	// { MODKEY,								XK_F3,		spawn,		SHCMD("displayselect") },
 
 	// J and K are automatically bound above in STACKEYS
