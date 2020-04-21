@@ -15,7 +15,7 @@ static const int smartgaps          = 0;        /* 1 means no outer gap when the
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "monospace:size=10", "JoyPixels:pixelsize=10:antialias=true:autohint=true"  };
-static char dmenufont[]       = "monospace:size=10";
+static char dmenufont[]       			= "monospace:size=10";
 static char normbgcolor[]           = "#222222";
 static char normbordercolor[]       = "#444444";
 static char normfgcolor[]           = "#bbbbbb";
@@ -39,7 +39,8 @@ static const Rule rules[] = {
 	/* class      												instance    title       tags mask     isfloating   isterminal noswallow monitor */
 	{ "St",       												NULL,       NULL,       0,            0,           1,         0,        -1 	},
 	{ "Gimp",     												NULL,       NULL,       1 << 7,       0,           0,         0,        -1 	},
-	{ "Spotify",      										"spotify",  "Spotify Premium",       1 << 5,       0,           0,         0,         0 	},
+	{ "Spotify",      										NULL,  			NULL,       1 << 5,       0,           0,         0,         1 	},
+
 	/* Messengers  */
 	{ "ViberPC",      										NULL,       NULL,       1 << 8,       0,           0,         0,         1 	},
 	{ "Skype",      											NULL,       NULL,       1 << 8,       0,           0,         0,         1 	},
@@ -168,6 +169,7 @@ static Key keys[] = {
 	{ MODKEY,								XK_m,					spawn,			SHCMD("spotify") },
 	{ MODKEY,								XK_x,					spawn,			SHCMD("$FILEMANAGER") },
 	{ MODKEY|ShiftMask,			XK_p,					spawn,			SHCMD("storm") },
+	{ MODKEY|ShiftMask,			XK_d,					spawn,			SHCMD("devterm") },
 	{ MODKEY,								XK_BackSpace,	spawn,			SHCMD("sysact") },
 	{ MODKEY,								XK_minus,			spawn,			SHCMD("pamixer --allow-boost -d 5; kill -44 $(pidof dwmblocks)") },
 	{ MODKEY|ShiftMask,			XK_minus,			spawn,			SHCMD("pamixer --allow-boost -d 15; kill -44 $(pidof dwmblocks)") },
