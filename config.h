@@ -36,29 +36,24 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      						instance    title       tags mask     isfloating   isterminal noswallow monitor */
-	{ "Gimp",     						NULL,       NULL,       1 << 8,       0,           0,         0,        -1 },
-	{ "St",       						NULL,       NULL,       0,            0,           1,         0,        -1 },
-	{ "Nvidia-settings",      NULL,       NULL,       1 << 7,       0,           1,         0,        -1 },
+	/* class      												instance    title       tags mask     isfloating   isterminal noswallow monitor */
+	{ "St",       												NULL,       NULL,       0,            0,           1,         0,        -1 	},
+	{ "Gimp",     												NULL,       NULL,       1 << 7,       0,           0,         0,        -1 	},
+	{ "Nvidia-settings",      						NULL,       NULL,       1 << 7,       1,           0,         0,         0	},
+	{ "Spotify",      										NULL,       NULL,       1 << 4,       1,           0,         0,         0 	},
+	{ "ViberPC",      										NULL,       NULL,       1 << 8,       0,           0,         0,         0 	},
+	{ "whatsapp-nativefier-d52542",      	NULL,       NULL,       1 << 8,       0,           0,         0,         0	},
+	{ "Ao",      													NULL,       NULL,       1 << 7,       0,           0,         0,        -1	},
+	{ "p3x-onenote",      								NULL,       NULL,       1 << 7,       0,           0,         0,        -1	},
+	{ "Image Lounge",      								NULL,       NULL,       0,			      0,           0,         0,        -1	},
+	{ "Lxappearance",      								NULL,       NULL,       0,		        0,           0,         0,        -1	},
+	{ "Blueman-manager",      						NULL,       NULL,       0,		        0,           0,         0,        -1	},
+	{ "Psi",      												NULL,       NULL,       0,		        0,           0,         0,        -1	},
+	{ "Gpg-crypter",      								NULL,       NULL,       0,            0,           0,         0,        -1	},
+	{ "Lxappearance",      								NULL,       NULL,       0,            0,           0,         0,        -1	},
+	{ "stacer",      											NULL,       NULL,       0,            0,           0,         0,        -1	},
+	{ "vlc",      												NULL,       NULL,       0,            0,           0,         0,        -1	},
 
-// for_window [class="Nvidia-settings"], $floating
-// for_window [class="^.*"] border pixel 2
-// for_window [class="Spotify"] $move 5, layout tabbed, focus
-// for_window [class="ViberPC"] $move 0, layout tabbed 
-// for_window [class="Skype"] $move 0, layout tabbed 
-// for_window [class="whatsapp-nativefier-d52542"] $move 0, layout tabbed
-// for_window [class="Ao"] $move 9
-// for_window [class="p3x-onenote"] $move 9
-// for_window [class="Image Lounge"], $floating, $center
-// for_window [class="Gucharmap"], $floating, $center
-// for_window [class="Yad"], $floating, $center
-// for_window [class="Lxappearance"], $floating, $center
-// for_window [class="Blueman-manager"], $floating, $center
-// for_window [class="Psi"], $floating, $center
-// for_window [class="Gpg-crypter"], $floating
-// for_window [class="Seahorse"], $floating
-// for_window [class="stacer"], $floating
-// for_window [class="vlc"], $floating
 };
 
 /* layout(s) */
