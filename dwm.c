@@ -2139,6 +2139,15 @@ tagmon(const Arg *arg)
 	if (!selmon->sel || !mons->next)
 		return;
 	sendmon(selmon->sel, dirtomon(arg->i));
+	Monitor *m;
+
+	if (!mons->next)
+		return;
+	if ((m = dirtomon(arg->i)) == selmon)
+		return;
+	unfocus(selmon->sel, 0);
+	selmon = m;
+	focus(NULL);
 }
 
 
