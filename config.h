@@ -39,20 +39,25 @@ static const Rule rules[] = {
 	/* class      												instance    title       tags mask     isfloating   isterminal noswallow monitor */
 	{ "St",       												NULL,       NULL,       0,            0,           1,         0,        -1 	},
 	{ "Gimp",     												NULL,       NULL,       1 << 7,       0,           0,         0,        -1 	},
-	{ "Nvidia-settings",      						NULL,       NULL,       1 << 7,       1,           0,         0,         0	},
-	{ "Spotify",      										NULL,       NULL,       1 << 4,       1,           0,         0,         0 	},
-	{ "ViberPC",      										NULL,       NULL,       1 << 8,       0,           0,         0,         0 	},
-	{ "whatsapp-nativefier-d52542",      	NULL,       NULL,       1 << 8,       0,           0,         0,         0	},
+	{ "Spotify",      										"spotify",  "Spotify Premium",       1 << 5,       0,           0,         0,         0 	},
+	/* Messengers  */
+	{ "ViberPC",      										NULL,       NULL,       1 << 8,       0,           0,         0,         1 	},
+	{ "Skype",      											NULL,       NULL,       1 << 8,       0,           0,         0,         1 	},
+	{ "whatsapp-nativefier-d52542",      	NULL,       NULL,       1 << 8,       0,           0,         0,         1	},
+	/* Productivity  */
 	{ "Ao",      													NULL,       NULL,       1 << 7,       0,           0,         0,        -1	},
 	{ "p3x-onenote",      								NULL,       NULL,       1 << 7,       0,           0,         0,        -1	},
-	{ "Image Lounge",      								NULL,       NULL,       0,			      0,           0,         0,        -1	},
+	/* System  */
+	{ "Nvidia-settings",      						NULL,       NULL,       1 << 7,       1,           0,         0,         0	},
 	{ "Lxappearance",      								NULL,       NULL,       0,		        0,           0,         0,        -1	},
 	{ "Blueman-manager",      						NULL,       NULL,       0,		        0,           0,         0,        -1	},
 	{ "Psi",      												NULL,       NULL,       0,		        0,           0,         0,        -1	},
 	{ "Gpg-crypter",      								NULL,       NULL,       0,            0,           0,         0,        -1	},
 	{ "Lxappearance",      								NULL,       NULL,       0,            0,           0,         0,        -1	},
 	{ "stacer",      											NULL,       NULL,       0,            0,           0,         0,        -1	},
+	/* Various  */
 	{ "vlc",      												NULL,       NULL,       0,            0,           0,         0,        -1	},
+	{ "Image Lounge",      								NULL,       NULL,       0,			      0,           0,         0,        -1	},
 
 };
 
