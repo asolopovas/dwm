@@ -1,28 +1,28 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 2;        /* border pixel of windows */
-static const unsigned int snap      = 32;       /* snap pixel */
+static const unsigned int borderpx       = 2;        /* border pixel of windows */
+static const unsigned int snap           = 32;       /* snap pixel */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayspacing = 2;   /* systray spacing */
 static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
-static const int showsystray        = 1;     /* 0 means no systray */
-static const unsigned int gappih    = 5;       /* horiz inner gap between windows */
-static const unsigned int gappiv    = 5;       /* vert inner gap between windows */
-static const unsigned int gappoh    = 10;       /* horiz outer gap between windows and screen edge */
-static const unsigned int gappov    = 10;       /* vert outer gap between windows and screen edge */
-static const int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
-static const int showbar            = 1;        /* 0 means no bar */
-static const int topbar             = 1;        /* 0 means bottom bar */
-static const int focusonwheel       = 0;
-static const char *fonts[]          = { "monospace:size=10", "JoyPixels:pixelsize=10:antialias=true:autohint=true"  };
-static char dmenufont[]                         = "monospace:size=10";
-static char normbgcolor[]           = "#222222";
-static char normbordercolor[]       = "#444444";
-static char normfgcolor[]           = "#bbbbbb";
-static char selfgcolor[]            = "#eeeeee";
-static char selbordercolor[]        = "#005577";
-static char selbgcolor[]            = "#005577";
+static const int showsystray             = 1;     /* 0 means no systray */
+static const unsigned int gappih         = 5;       /* horiz inner gap between windows */
+static const unsigned int gappiv         = 5;       /* vert inner gap between windows */
+static const unsigned int gappoh         = 10;       /* horiz outer gap between windows and screen edge */
+static const unsigned int gappov         = 10;       /* vert outer gap between windows and screen edge */
+static const int smartgaps               = 0;        /* 1 means no outer gap when there is only one window */
+static const int showbar                 = 1;        /* 0 means no bar */
+static const int topbar                  = 1;        /* 0 means bottom bar */
+static const int focusonwheel            = 0;
+static const char *fonts[]               = { "monospace:size=10", "JoyPixels:pixelsize=10:antialias=true:autohint=true"  };
+static char dmenufont[]                  = "monospace:size=10";
+static char normbgcolor[]                = "#222222";
+static char normbordercolor[]            = "#444444";
+static char normfgcolor[]                = "#bbbbbb";
+static char selfgcolor[]                 = "#eeeeee";
+static char selbordercolor[]             = "#005577";
+static char selbgcolor[]                 = "#005577";
 static char *colors[][3] = {
        /*               fg           bg           border   */
        [SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
@@ -101,27 +101,27 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
-static char dmenumon[2]                      = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[]            = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
-static const char *termcmd[]             = { "st", NULL };
+static char dmenumon[2]            = "0"; /* component of dmenucmd, manipulated in spawn() */
+static const char *dmenucmd[]      = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
+static const char *termcmd[]       = { "st", NULL };
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34", NULL };
 
 #include <X11/XF86keysym.h>
 #include "shiftview.c"
 static Key keys[] = {
-    /* modifier             key                     function        argument */
-    STACKKEYS(              MODKEY,                 focus)
-    STACKKEYS(              MODKEY|ShiftMask,       push)
-    TAGKEYS(                XK_1,       						0)
-    TAGKEYS(                XK_2,       						1)
-    TAGKEYS(                XK_3,       						2)
-    TAGKEYS(                XK_4,       						3)
-    TAGKEYS(                XK_5,       						4)
-    TAGKEYS(                XK_6,       						5)
-    TAGKEYS(                XK_7,       						6)
-    TAGKEYS(                XK_8,       						7)
-    TAGKEYS(                XK_9,       						8)
+ /* modifier                      key                   function        argument */
+    STACKKEYS(                  MODKEY,             focus)
+    STACKKEYS(                  MODKEY|ShiftMask,   push)
+    TAGKEYS(                    XK_1,                       0)
+    TAGKEYS(                    XK_2,                       1)
+    TAGKEYS(                    XK_3,                       2)
+    TAGKEYS(                    XK_4,                       3)
+    TAGKEYS(                    XK_5,                       4)
+    TAGKEYS(                    XK_6,                       5)
+    TAGKEYS(                    XK_7,                       6)
+    TAGKEYS(                    XK_8,                       7)
+    TAGKEYS(                    XK_9,                       8)
 
     // -------------------------------------------------
     // Layouts
@@ -151,7 +151,7 @@ static Key keys[] = {
     { MODKEY|ShiftMask,         XK_Return,      togglescratch,  {.v = scratchpadcmd } },
     { MODKEY,                   XK_semicolon,   shiftview,      {.i = 1           } },
     { MODKEY,                   XK_0,           view,           {.ui = ~0         } },
-    { MODKEY|ShiftMask,         XK_0,            tag,           {.ui = ~0         } },
+    { MODKEY|ShiftMask,         XK_0,           tag,            {.ui = ~0         } },
 
     // -------------------------------------------------
     // Software
@@ -172,26 +172,24 @@ static Key keys[] = {
     // -------------------------------------------------
     // Monitor Navigation
     // -------------------------------------------------
-    // { MODKEY,                XK_Left,        focusmon,       {.i = -1 } },
     { MODKEY,                   XK_h,           focusmon,       {.i = -1 } },
     { MODKEY|ShiftMask,         XK_h,           tagmon,         {.i = -1 } },
-    // { MODKEY|ShiftMask,      XK_Left,        tagmon,         {.i = -1 } },
     { MODKEY,                   XK_l,           focusmon,       {.i = +1 } },
     { MODKEY|ShiftMask,         XK_l,           tagmon,         {.i = +1 } },
-    // { MODKEY,                XK_Right,       focusmon,       {.i = +1 } },
-    // { MODKEY|ShiftMask,      XK_Right,       tagmon,         {.i = +1 } },
-    { MODKEY,                   XK_Left,   			viewtoleft,     {0} },
-    { MODKEY,                   XK_Right,  			viewtoright,    {0} },
-    { MODKEY|ShiftMask,         XK_Left,   			tagtoleft,      {0} },
-    { MODKEY|ShiftMask,         XK_Right,  			tagtoright,     {0} },
-    // { MODKEY,                XK_F3,      		spawn,      		SHCMD("displayselect") },
+    { MODKEY,                   XK_Left,        viewtoleft,     {0} },
+    { MODKEY,                   XK_Right,       viewtoright,    {0} },
+    { MODKEY|ShiftMask,         XK_Left,        tagtoleft,      {0} },
+    { MODKEY|ShiftMask,         XK_Right,       tagtoright,     {0} },
     { MODKEY,                   XK_Page_Up,     shiftview,      { .i = -1 } },
     { MODKEY,                   XK_Page_Down,   shiftview,      { .i = 1 } },
     { MODKEY,                   XK_Insert,      spawn,          SHCMD("notify-send \"📋 Clipboard contents:\" \"$(xclip -o -selection clipboard)\"") },
     { MODKEY,                   XK_space,       zoom,           {0} },
     { MODKEY|ShiftMask,         XK_space,       togglefloating, {0}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 },
 
-    { 0, XK_Print,                 spawn,           SHCMD("maim pic-full-$(date '+%y%m%d-%H%M-%S').png") },
+    // -------------------------------------------------
+    // Media Buttons
+    // -------------------------------------------------
+    { 0, XK_Print,                 spawn,           SHCMD("flameshot gui") },
     { 0, XF86XK_AudioMute,         spawn,           SHCMD("lmc mute; kill -44 $(pidof dwmblocks)") },
     { 0, XF86XK_AudioRaiseVolume,  spawn,           SHCMD("lmc up; kill -44 $(pidof dwmblocks)") },
     { 0, XF86XK_AudioLowerVolume,  spawn,           SHCMD("lmc down; kill -44 $(pidof dwmblocks)") },
@@ -200,8 +198,6 @@ static Key keys[] = {
     { 0, XF86XK_AudioPause,        spawn,           SHCMD("playerctl pause") },
     { 0, XF86XK_AudioPlay,         spawn,           SHCMD("playerctl play-pause") },
     { 0, XF86XK_AudioStop,         spawn,           SHCMD("playerctl stop") },
-    // { 0, XF86XK_AudioRewind,    spawn,           SHCMD("mpc seek -10") },
-    // { 0, XF86XK_AudioForward,   spawn,           SHCMD("mpc seek +10") },
     { 0, XF86XK_AudioMedia,        spawn,           SHCMD("st -e ncmpcpp") },
     { 0, XF86XK_PowerOff,          spawn,           SHCMD("[ \"$(printf \"No\\nYes\" | dmenu -i -nb darkred -sb red -sf white -nf gray -p \"Shutdown computer?\")\" = Yes ] && sudo -A shutdown -h now") },
     { 0, XF86XK_Calculator,        spawn,           SHCMD("st -e bc -l") },
@@ -212,7 +208,7 @@ static Key keys[] = {
     { 0, XF86XK_TaskPane,          spawn,           SHCMD("st -e htop") },
     { 0, XF86XK_Mail,              spawn,           SHCMD("st -e neomutt ; pkill -RTMIN+12 dwmblocks") },
     { 0, XF86XK_MyComputer,        spawn,           SHCMD("st -e lf /") },
-    /* { 0, XF86XK_Battery,        spawn,           SHCMD("") }, */
+    // { 0, XF86XK_Battery,        spawn,           SHCMD("") },
     { 0, XF86XK_Launch1,           spawn,           SHCMD("xset dpms force off") },
     { 0, XF86XK_TouchpadToggle,    spawn,           SHCMD("(synclient | grep 'TouchpadOff.*1' && synclient TouchpadOff=0) || synclient TouchpadOff=1") },
     { 0, XF86XK_TouchpadOff,       spawn,           SHCMD("synclient TouchpadOff=1") },
@@ -227,20 +223,20 @@ static Key keys[] = {
 static Button buttons[] = {
     /* click                event mask      button          function        argument */
     { ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
-    { ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]   } },
-    { ClkWinTitle,          0,              Button2,        zoom,           {0                              } },
+    { ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]           } },
+    { ClkWinTitle,          0,              Button2,        zoom,           {0                          } },
     { ClkStatusText,        0,              Button1,        sigdwmblocks,   {.i = 1                     } },
     { ClkStatusText,        0,              Button2,        sigdwmblocks,   {.i = 2                     } },
     { ClkStatusText,        0,              Button3,        sigdwmblocks,   {.i = 3                     } },
     { ClkStatusText,        0,              Button4,        sigdwmblocks,   {.i = 4                     } },
     { ClkStatusText,        0,              Button5,        sigdwmblocks,   {.i = 5                     } },
-    { ClkClientWin,         MODKEY,         Button1,        movemouse,      {0                              } },
-    { ClkClientWin,         MODKEY,         Button2,        togglefloating, {0                              } },
-    { ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0                              } },
-    { ClkTagBar,            0,              Button1,        view,           {0                              } },
-    { ClkTagBar,            0,              Button3,        toggleview,     {0                              } },
-    { ClkTagBar,            MODKEY,         Button1,        tag,            {0                              } },
-    { ClkTagBar,            MODKEY,         Button3,        toggletag,      {0                              } },
-    { ClkTagBar,            0,              Button4,                shiftview,          {.i = -1                    } },
-    { ClkTagBar,            0,              Button5,                shiftview,          {.i = 1                     } },
+    { ClkClientWin,         MODKEY,         Button1,        movemouse,      {0                          } },
+    { ClkClientWin,         MODKEY,         Button2,        togglefloating, {0                          } },
+    { ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0                          } },
+    { ClkTagBar,            0,              Button1,        view,           {0                          } },
+    { ClkTagBar,            0,              Button3,        toggleview,     {0                          } },
+    { ClkTagBar,            MODKEY,         Button1,        tag,            {0                          } },
+    { ClkTagBar,            MODKEY,         Button3,        toggletag,      {0                          } },
+    { ClkTagBar,            0,              Button4,        shiftview,      {.i = -1                    } },
+    { ClkTagBar,            0,              Button5,        shiftview,      {.i = 1                     } },
 };
