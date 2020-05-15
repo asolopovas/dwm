@@ -40,10 +40,11 @@ static const Rule rules[] = {
     /* class                        instance    title       tags mask     isfloating   isterminal   noswallow  monitor */
     { "St",                         NULL,       NULL,       0,            0,           1,           0,         -1  },
     { "Gimp",                       NULL,       NULL,       1<<7,         0,           0,           0,         -1  },
-    { "Spotify",                    NULL,       NULL,       1<<2,         1,           0,           0,          0  },
+    { "Spotify",                    NULL,       NULL,       1<<2,         0,           0,           0,          0  },
     /* Messengers  */
     { "ViberPC",                    NULL,       NULL,       1<<8,         0,           0,           0,          1  },
     { "Skype",                      NULL,       NULL,       1<<8,         0,           0,           0,          1  },
+    { "TelegramDesktop",           NULL,       NULL,       1<<8,         0,           0,           0,          1  },
     { "whatsapp-nativefier-d52542", NULL,       NULL,       1<<8,         0,           0,           0,          1  },
     /* Productivity  */
     { "Ao",                         NULL,       NULL,       1<<7,         0,           0,           0,         -1  },
