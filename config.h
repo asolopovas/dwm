@@ -44,7 +44,7 @@ static const Rule rules[] = {
     /* Messengers  */
     { "ViberPC",                    NULL,       NULL,       1<<8,         0,           0,           0,          1  },
     { "Skype",                      NULL,       NULL,       1<<8,         0,           0,           0,          1  },
-    { "TelegramDesktop",           NULL,       NULL,       1<<8,         0,           0,           0,          1  },
+    { "TelegramDesktop",            NULL,       NULL,       1<<8,         0,           0,           0,          1  },
     { "whatsapp-nativefier-d52542", NULL,       NULL,       1<<8,         0,           0,           0,          1  },
     /* Productivity  */
     { "Ao",                         NULL,       NULL,       1<<7,         0,           0,           0,         -1  },
@@ -163,7 +163,7 @@ static Key keys[] = {
     { MODKEY,                   XK_m,           spawn,          SHCMD("spotify") },
     { MODKEY,                   XK_x,           spawn,          SHCMD("$FILEMANAGER") },
     { MODKEY|ShiftMask,         XK_p,           spawn,          SHCMD("storm") },
-    { MODKEY|ShiftMask,         XK_d,           spawn,          SHCMD("devterm") },
+    { MODKEY,         					XK_p,           spawn,          SHCMD("devterm") },
     { MODKEY,                   XK_BackSpace,   spawn,          SHCMD("sysact") },
     { MODKEY,                   XK_minus,       spawn,          SHCMD("pamixer --allow-boost -d 5; kill -44 $(pidof dwmblocks)") },
     { MODKEY|ShiftMask,         XK_minus,       spawn,          SHCMD("pamixer --allow-boost -d 15; kill -44 $(pidof dwmblocks)") },
