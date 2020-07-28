@@ -37,29 +37,30 @@ static const Rule rules[] = {
      *  WM_CLASS(STRING) = instance, class
      *  WM_NAME(STRING) = title
      */
-    /* class                        instance    title       tags mask     isfloating   isterminal   noswallow  monitor */
-    { "St",                         NULL,       NULL,       0,            0,           1,           0,         -1  },
-    { "Gimp",                       NULL,       NULL,       1<<7,         0,           0,           0,         -1  },
-    { "Spotify",                    NULL,       NULL,       1<<2,         0,           0,           0,          0  },
+    /* class                        instance    title       tags mask   isCentered   isfloating   isterminal   noswallow  monitor */
+    { "St",                         NULL,       NULL,       0,          0,           0,           1,           0,         -1  },
+    { "fzfmenu",                    NULL,       NULL,       0,          1,           1,           1,           0,         -1  },
+    { "Gimp",                       NULL,       NULL,       1<<7,       0,           0,           0,           0,         -1  },
+    { "Spotify",                    NULL,       NULL,       1<<2,       0,           0,           0,           0,          0  },
     /* Messengers  */
-    { "ViberPC",                    NULL,       NULL,       1<<8,         0,           0,           0,          1  },
-    { "Skype",                      NULL,       NULL,       1<<8,         0,           0,           0,          1  },
-    { "TelegramDesktop",            NULL,       NULL,       1<<8,         0,           0,           0,          1  },
-    { "whatsapp-nativefier-d52542", NULL,       NULL,       1<<8,         0,           0,           0,          1  },
+    { "ViberPC",                    NULL,       NULL,       1<<8,       0,           0,           0,           0,          1  },
+    { "Skype",                      NULL,       NULL,       1<<8,       0,           0,           0,           0,          1  },
+    { "TelegramDesktop",            NULL,       NULL,       1<<8,       0,           0,           0,           0,          1  },
+    { "whatsapp-nativefier-d52542", NULL,       NULL,       1<<8,       0,           0,           0,           0,          1  },
     /* Productivity  */
-    { "Ao",                         NULL,       NULL,       1<<7,         0,           0,           0,         -1  },
-    { "p3x-onenote",                NULL,       NULL,       1<<7,         0,           0,           0,         -1  },
+    { "Ao",                         NULL,       NULL,       1<<7,       0,           0,           0,           0,         -1  },
+    { "p3x-onenote",                NULL,       NULL,       1<<7,       0,           0,           0,           0,         -1  },
     /* System  */
-    { "Nvidia-settings",            NULL,       NULL,       1<<7,         1,           0,           0,          0  },
-    { "Lxappearance",               NULL,       NULL,       0,            0,           0,           0,         -1  },
-    { "Blueman-manager",            NULL,       NULL,       0,            0,           0,           0,         -1  },
-    { "Psi",                        NULL,       NULL,       0,            0,           0,           0,         -1  },
-    { "Gpg-crypter",                NULL,       NULL,       0,            0,           0,           0,         -1  },
-    { "Lxappearance",               NULL,       NULL,       0,            0,           0,           0,         -1  },
-    { "stacer",                     NULL,       NULL,       0,            0,           0,           0,         -1  },
+    { "Nvidia-settings",            NULL,       NULL,       1<<7,       0,           1,           0,           0,          0  },
+    { "Lxappearance",               NULL,       NULL,       0,          0,           0,           0,           0,         -1  },
+    { "Blueman-manager",            NULL,       NULL,       0,          0,           0,           0,           0,         -1  },
+    { "Psi",                        NULL,       NULL,       0,          0,           0,           0,           0,         -1  },
+    { "Gpg-crypter",                NULL,       NULL,       0,          0,           0,           0,           0,         -1  },
+    { "Lxappearance",               NULL,       NULL,       0,          0,           0,           0,           0,         -1  },
+    { "stacer",                     NULL,       NULL,       0,          0,           0,           0,           0,         -1  },
     /* Various  */
-    { "vlc",                        NULL,       NULL,       0,            0,           0,           0,         -1  },
-    { "Image Lounge",               NULL,       NULL,       0,            0,           0,           0,         -1  },
+    { "vlc",                        NULL,       NULL,       0,          0,           0,           0,           0,         -1  },
+    { "Image Lounge",               NULL,       NULL,       0,          0,           0,           0,           0,         -1  },
 };
 
 /* layout(s) */
@@ -162,7 +163,7 @@ static Key keys[] = {
     { MODKEY,                   XK_b,           spawn,          SHCMD("$BROWSER") },
     { MODKEY,                   XK_m,           spawn,          SHCMD("spotify") },
     { MODKEY,                   XK_x,           spawn,          SHCMD("$FILEMANAGER") },
-    { MODKEY|ShiftMask,         XK_p,           spawn,          SHCMD("storm") },
+    { MODKEY|ShiftMask,         XK_p,           spawn,          SHCMD("fzfmenu") },
     { MODKEY,         					XK_p,           spawn,          SHCMD("devterm") },
     { MODKEY,                   XK_BackSpace,   spawn,          SHCMD("sysact") },
     { MODKEY,                   XK_minus,       spawn,          SHCMD("pamixer --allow-boost -d 5; kill -44 $(pidof dwmblocks)") },
