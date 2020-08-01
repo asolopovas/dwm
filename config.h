@@ -3,7 +3,7 @@
 /* appearance */
 static const unsigned int borderpx       = 2;        /* border pixel of windows */
 static const unsigned int snap           = 32;       /* snap pixel */
-static const unsigned int systraypinning = 1;        /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
+static const unsigned int systraypinning = 0;        /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayspacing = 8;        /* systray spacing */
 static const int systraypinningfailfirst = 1;        /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
 static const int showsystray             = 1;        /* 0 means no systray */
@@ -15,9 +15,9 @@ static const int smartgaps               = 0;        /* 1 means no outer gap whe
 static const int showbar                 = 1;        /* 0 means no bar */
 static const int topbar                  = 1;        /* 0 means bottom bar */
 static const int focusonwheel            = 0;
-static const char *fonts[]               = { 
-  "monospace:pixelsize=14:antialias=true:autohint=true", 
-  "JoyPixels:pixelsize=12:antialias=true:autohint=true"  
+static const char *fonts[]               = {
+  "monospace:pixelsize=14:antialias=true:autohint=true",
+  "JoyPixels:pixelsize=12:antialias=true:autohint=true"
 };
 static char dmenufont[]                  = "monospace:size=14";
 static char normbgcolor[]                = "#222222";
