@@ -168,6 +168,7 @@ static Key keys[] = {
     { MODKEY,                   XK_x,           spawn,          SHCMD("$FILEMANAGER") },
     { MODKEY|ShiftMask,         XK_p,           spawn,          SHCMD("fzfmenu storm") },
     { MODKEY,                   XK_p,           spawn,          SHCMD("fzfmenu fzfst") },
+    { MODKEY|ShiftMask,         XK_o,           spawn,          SHCMD("fzfmenu vscode") },
     { MODKEY,                   XK_BackSpace,   spawn,          SHCMD("sysact") },
     { MODKEY,                   XK_minus,       spawn,          SHCMD("pamixer --allow-boost -d 5; kill -44 $(pidof dwmblocks)") },
     { MODKEY|ShiftMask,         XK_minus,       spawn,          SHCMD("pamixer --allow-boost -d 15; kill -44 $(pidof dwmblocks)") },
